@@ -1,0 +1,10 @@
+{
+  "include": ["src/**/*.ts", "defs/*.d.ts"],
+  "compilerOptions": {
+    "target": "ES6",
+    "noImplicitAny": true,
+    "declaration": true,
+    "outDir": "dist",
+    "module": "ES6",
+  }
+}

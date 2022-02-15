@@ -1,0 +1,7 @@
+{
+  "name": "Lisp Runner",
+  "description": "Allows running Cumcord plugins built in CumLISP",
+  "author": "Yellowsink",
+  "file": "src/index.ts",
+  "license": "Unlicense"
+}
