@@ -2,10 +2,12 @@ lockfileVersion: 5.3
 
 specifiers:
   '@types/lodash': ^4.14.178
+  clisp-stools: ^0.2.0
   cumlisp: ^1.2.0
   typescript: ^4.5.5
 
 dependencies:
+  clisp-stools: 0.2.0
   cumlisp: 1.2.0
 
 devDependencies:
@@ -17,6 +19,12 @@ packages:
   /@types/lodash/4.14.178:
     resolution: {integrity: sha512-0d5Wd09ItQWH1qFbEyQ7oTQ3GZrMfth5JkbN3EvTKLXcHLRDSXeLnlvlOn0wvxVIwK5o2M8JzP/OWz7T3NRsbw==}
     dev: true
+
+  /clisp-stools/0.2.0:
+    resolution: {integrity: sha512-qSpdd1CXONcU3E86XBxfdTUGHOjmuvxGvqThCRM8POTL9zhO/trHZzUqVXOY/6QPFjaan0T/uUzhm8lvLaK6/g==}
+    dependencies:
+      cumlisp: 1.2.0
+    dev: false
 
   /cumlisp/1.2.0:
     resolution: {integrity: sha512-B4ug+kGBPDLZq7KOFuijnWpYh1ZB5IDMYC8RXizxt7NMrH7Mu6QmA2WMU3GCoIMjQNw/WbZxOg0AqBpdhI2Cug==}
