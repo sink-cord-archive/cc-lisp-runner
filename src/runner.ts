@@ -4,7 +4,12 @@ import installStools from "clisp-stools";
 import installApi from "./api";
 
 const createVM = () => {
-  const vm = new VM(() => warn("VM hit max time - this might be bad!"));
+  let warnCount = 0;
+  const vm = new VM(() => {
+    if (warnCount % 50 === 0)
+      warn(`VM hit max time ${warnCount} \`consumeTime\`s ago - this might be bad!`);
+    warnCount++;
+  });
   libBasic.installBasic(vm);
   installStools(vm);
   installApi(vm);

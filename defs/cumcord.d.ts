@@ -1,6 +1,6 @@
 declare module "@cumcord" {
   export function uninject(): void;
-  export function cum(): void | Promise<void>;
+  export function cum(cockSize?: number, cumshotStrength?: number): string | Promise<string>;
   namespace dev {
     export function showSettings(): void;
     export function toggleDevMode(): void;
@@ -44,9 +44,11 @@ declare module "@cumcord" {
     }
   }
   namespace plugins {
-    export function importPlugin(baseUrl: string): void;
-    export function deletePlugin(pluginId: string): void;
+    export function importPlugin(baseUrl: string): Promise<void>;
+    export function removePlugin(pluginId: string): void;
     export function togglePlugin(pluginId: string): void;
+    export const installed: Object;
+    export const loaded: Object;
   }
   namespace patcher {
     export function before(functionName: string, functionParent: Object | Function, callback: (arguments: Array<any | Object | Function>) => any): () => boolean;
@@ -69,10 +71,10 @@ declare module "@cumcord" {
   }
   namespace ui {
     namespace modals {
-      export function showConfirmationModal(data: {header?: string, confirmText?: string, cancelText?: string, content?: string, type: string}, callback: undefined | Function): Promise<boolean>;
+      export function showConfirmationModal(data: {header?: string, confirmText?: string, cancelText?: string, content?: string, type?: string}, callback?: (res: boolean) => void): Promise<boolean>;
     }
     namespace toasts {
-      export function showToast(data: {title: string, content: string, onClick?: Function, className?: string, duration?: number}): void;
+      export function showToast(data: {title: string, content?: string, onClick?: Function, className?: string, duration?: number}): void;
     }
   }
 }
@@ -175,9 +177,11 @@ declare module "@cumcord/modules/internal/nests" {
 }
 
 declare module "@cumcord/plugins" {
-  export function importPlugin(baseUrl: string): void;
-  export function deletePlugin(pluginId: string): void;
+  export function importPlugin(baseUrl: string): Promise<void>;
+  export function removePlugin(pluginId: string): void;
   export function togglePlugin(pluginId: string): void;
+  export const installed: Object;
+  export const loaded: Object;
 }
 
 declare module "@cumcord/patcher" {
@@ -209,17 +213,17 @@ declare module "@cumcord/utils/logger" {
 
 declare module "@cumcord/ui" {
   namespace modals {
-    export function showConfirmationModal(data: {header?: string, confirmText?: string, cancelText?: string, content?: string, type: string}, callback: undefined | Function): Promise<boolean>;
+    export function showConfirmationModal(data: {header?: string, confirmText?: string, cancelText?: string, content?: string, type?: string}, callback?: (res: boolean) => void): Promise<boolean>;
   }
   namespace toasts {
-    export function showToast(data: {title: string, content: string, onClick?: Function, className?: string, duration?: number}): void;
+    export function showToast(data: {title: string, content?: string, onClick?: Function, className?: string, duration?: number}): void;
   }
 }
 
 declare module "@cumcord/ui/modals" {
-  export function showConfirmationModal(data: {header?: string, confirmText?: string, cancelText?: string, content?: string, type: string}, callback: undefined | Function): Promise<boolean>;
+  export function showConfirmationModal(data: {header?: string, confirmText?: string, cancelText?: string, content?: string, type?: string}, callback?: (res: boolean) => void): Promise<boolean>;
 }
 
 declare module "@cumcord/ui/toasts" {
-  export function showToast(data: {title: string, content: string, onClick?: Function, className?: string, duration?: number}): void;
+  export function showToast(data: {title: string, content?: string, onClick?: Function, className?: string, duration?: number}): void;
 }
